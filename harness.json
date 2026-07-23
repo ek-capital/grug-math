@@ -1,4 +1,0 @@
-{
-  "checker": ["python3", "verifier.py"],
-  "timeout_seconds": 300
-}
