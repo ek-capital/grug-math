@@ -11,6 +11,12 @@ One branch. One math problem. One agent.
 The agent creates whatever code, searches, proofs, tests, and notes it needs.
 Nothing else is imposed by the repo.
 
+Check recent research with one uv-managed helper:
+
+```bash
+uv run papers.py 'all:"your topic" AND cat:math.CO'
+```
+
 The research method is adapted from
 [Shouqiao Wang's workflow](https://x.com/Qiaoqiao2001/status/2080003441821163958)
 and OpenAI's

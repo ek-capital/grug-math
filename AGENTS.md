@@ -26,6 +26,17 @@ Read `problem.md`, then work on it as a long-running research goal.
 - Require concrete lemmas, constructions, equations, programs, certificates, or
   counterexamples to proposed sublemmas. Reject vague progress reports.
 
+## Stay current
+
+- At the start, derive several arXiv queries from `problem.md`: the exact name,
+  alternate terminology, key objects, and the closest known results.
+- Run `uv run papers.py '<query>'` for each query. Use `--days`, `--limit`, and
+  `--json` when useful.
+- Read relevant papers rather than relying on abstracts. Record arXiv IDs,
+  versions, dates, and useful results in `research.md`.
+- Repeat the search before claiming novelty or finalizing a result. New papers
+  may appear during a long run.
+
 ## Attack the work
 
 - Assign adversarial checks throughout, not only at the end.
