@@ -1,80 +1,28 @@
 # grug-math
 
-Tiny harness for attacking a concrete open math problem with coding agents.
+Tiny harness for math-solving agents.
 
-Complexity bad. Candidate either pass checker or candidate not pass checker.
+Agent proposes thing. Checker checks thing. No vibes.
 
-## Files
+## Setup
 
-```text
-problem.md   exact problem; do not let agents rewrite it
-PROMPT.md    paste-ready research instructions for a coding agent
-search.py    agents change this to search better
-check.py     exact checker; agents do not change this
-best.json    best candidate found so far
-notes.md     useful facts and dead ends
-test.py      small tests for checker
-```
-
-The first target is the stretched Littlewood-Richardson positivity conjecture.
-The checker is pure Python and uses exact integer and rational arithmetic.
-
-## Use
+1. Put the exact task and finish line in `problem.md`.
+2. Implement the exact test in `verifier.py`.
+3. Give `PROMPT.md` to an agent.
 
 ```bash
 python3 test.py
 python3 check.py best.json
-python3 search.py --trials 100
+python3 search.py
 ```
 
-`search.py` replaces `best.json` when it finds a candidate with a smaller
-polynomial coefficient. A negative coefficient is a counterexample.
+Agents may change `search.py`, `best.json`, and `notes.md`.
+Agents must not change `problem.md`, `check.py`, or `verifier.py`.
 
-To start a long agent run, give the agent `PROMPT.md`. The prompt requires
-independent approaches, explicit blocked-route tracking, and adversarial review.
+A result is not real until the checker passes, a second independent checker
+agrees, and a human expert reviews it.
 
-The default search is deliberately small and dumb. Improve `search.py`, not the
-harness.
+Workflow inspired by
+[Shouqiao Wang's research thread](https://x.com/Qiaoqiao2001/status/2080003441821163958).
 
-When choosing a future problem, prefer one that:
-
-- mathematicians already care about;
-- has an exact statement and checkable finish line;
-- is not merely a disguised Millennium-scale conjecture;
-- permits useful computation, counterexample search, or finite certificates.
-
-For long research runs, use the strongest reasoning model available, give it
-`PROMPT.md`, and expect hours rather than minutes.
-
-## Rules
-
-1. Do not change `problem.md` to make search easier.
-2. Search code may use guesses and floating point.
-3. Checker uses exact arithmetic.
-4. Another model saying "looks correct" is not verification.
-5. Before announcing a result, write a second independent checker and ask a
-   mathematician who works in the area.
-
-## Research loop
-
-```text
-attempt -> failure -> diagnosis -> new approach -> candidate -> attack -> repair
-```
-
-Keep several genuinely different approaches alive. When an approach reduces
-the problem to another unproved claim of similar difficulty, mark it blocked
-in `notes.md`. Reopen it only when there is a new mechanism.
-
-This workflow was adapted from
-[Shouqiao Wang's thread](https://x.com/Qiaoqiao2001/status/2080003441821163958)
-and [published Erdős problem prompts](https://github.com/ShouqiaoW/erdos).
-
-## Why Littlewood-Richardson coefficients?
-
-The answer is a small object: three integer partitions. It can be checked
-exactly, and a counterexample would be a meaningful result in algebraic
-combinatorics.
-
-## License
-
-MIT
+MIT licensed.
