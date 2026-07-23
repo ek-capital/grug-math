@@ -2,7 +2,7 @@
 
 from fractions import Fraction
 
-from check import interpolate, lr_coefficient, partition
+from check import analyse, interpolate, lr_coefficient, partition
 
 
 def main() -> None:
@@ -20,6 +20,11 @@ def main() -> None:
         Fraction(0),
         Fraction(1),
     ]
+    empty_stretch = analyse(
+        {"lambda": [3, 1, 1, 1], "mu": [3, 1], "nu": [2]}
+    )
+    assert empty_stretch["values"] == [0, 0, 0, 0]
+    assert not empty_stretch["counterexample"]
     print("ok")
 
 
