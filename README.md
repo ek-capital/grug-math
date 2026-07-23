@@ -11,4 +11,9 @@ One branch. One math problem. One agent.
 The agent creates whatever code, searches, proofs, tests, and notes it needs.
 Nothing else is imposed by the repo.
 
+The research method is adapted from
+[Shouqiao Wang's workflow](https://x.com/Qiaoqiao2001/status/2080003441821163958)
+and OpenAI's
+[Cycle Double Cover prompt](https://cdn.openai.com/pdf/04d1d1e4-bc75-476a-97cf-49055cd98d31/cdc_prompt.pdf).
+
 MIT licensed.
